@@ -1,0 +1,26 @@
+{
+  "name": "Knolling",
+  "version": "0.1.0",
+  "authors": [
+    "tuskerette <valeria.graffeo@gmail.com>"
+  ],
+  "description": "Always be knolling",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "knolling"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "interact": "~1.2.4"
+  }
+}
