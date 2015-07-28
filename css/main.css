@@ -1,7 +1,7 @@
 /* Global reset
    http://meyerweb.com/eric/tools/css/reset/
 *****************************************************************/
-
+/*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,9 +21,9 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}
+}*/
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
+/*article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -44,18 +44,24 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+}*/
 
 /*==========================
 Site specific CSS*/
 
+
+
+
+/*===========================
+Interact specific CSS*/
+
 #drag-1, #drag-2 {
-  width: 25%;
-  height: 100%;
+  width: 10%;
+  height: 80%;
   min-height: 6.5em;
   margin: 10%;
 
-  background-color: #29e;
+  background-color: coral;
   color: white;
 
   border-radius: 0.75em;
