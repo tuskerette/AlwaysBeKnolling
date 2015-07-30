@@ -8,6 +8,10 @@ h1 {
   color: #FF9A00;
 }
 
+h5 {
+  margin-top: 30px;
+}
+
 .content {
   border: 1px solid black;
   height: 1000px;
@@ -18,15 +22,14 @@ h1 {
 Interact specific CSS*/
 
 #knolling-icon {
-  width: 6.5em;
-  height: 6.5em;
-  min-height: 40px;
+  width: 6em;
+  height: 6em;
+  min-height: 6em;
   margin: 5%;
-
   background-color: #333;
   color: white;
 
-  border-radius: 50% 50% 10% 50%;
+  border-radius: 80% 80% 0% 50%;
   padding: 4.5em;
 
   -webkit-transform: translate(0px, 0px);
@@ -48,7 +51,6 @@ Interact specific CSS*/
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
 }
-
 
 
 /*Color Palette: http://paletton.com/palette.php?uid=70k0u0kurfRtw0Qpm1hQ%2BWzy8UX*/
