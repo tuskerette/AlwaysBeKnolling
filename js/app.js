@@ -32,27 +32,6 @@ function dragMoveListener (event) {
 window.dragMoveListener = dragMoveListener;
 
 
-
-// Multi-touch rotation (interactjs)
-// var angle = 0;
-
-// interact('#rotate-area').gesturable({
-//   onmove: function (event) {
-//     var arrow = document.getElementById('search2');
-
-//     angle += event.da;
-
-//     arrow.style.webkitTransform =
-//     arrow.style.transform =
-//       'rotate(' + angle + 'deg)';
-
-//     // document.getElementById('angle-info').textContent =
-//     //   angle.toFixed(2) + '°';
-//   }
-// });
-
-
-
 // Rotate
 $(document).ready(function() {
 
@@ -70,10 +49,10 @@ $(document).ready(function() {
       $(pw).css('-ms-transform', 'rotate(' + degree + 'deg)');
   }
 
-  $('.drop').mousedown(function(e) {
+  $('.rotate').mousedown(function(e) {
     e.preventDefault(); // prevents the dragging of the image.
     $(document).bind('mousemove.rotateImg', function(e2) {
-      rotateOnMouse(e2, $('.drop'));
+      rotateOnMouse(e2, $('.glyphicon'));
     });
   });
 
@@ -82,9 +61,9 @@ $(document).ready(function() {
   });
 
 
-  $('input').on( "click", function() {
-    $('#sunglasses2').toggleClass('draggable');
-    $('#sunglasses2').addClass('drop');
+  $('input').on("click", function() {
+    $('.glyphicon').toggleClass('draggable');
+    $('.glyphicon').toggleClass('rotate');
 
     $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
   });
