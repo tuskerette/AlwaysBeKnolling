@@ -7,36 +7,16 @@ body {
 h1 {
   color: #FF9A00;
 }
-
-h5 {
-  margin-top: 30px;
-}
-
 .content {
   border: 1px solid black;
-  height: 1000px;
+  height: 2000px;
   width: 100%;
 }
 
 /*===========================
-Interact specific CSS*/
+Interactjs specific CSS*/
 
-#knolling-icon {
-  width: 6em;
-  height: 6em;
-  min-height: 6em;
-  margin: 5%;
-  background-color: #333;
-  color: white;
-
-  border-radius: 80% 80% 0% 50%;
-  padding: 4.5em;
-
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-}
-
-#wrench, #scissors, #pencil, #search {
+.draggable {
   color: #333;
   font-size: 5em;
   margin: 30px;
@@ -44,13 +24,22 @@ Interact specific CSS*/
           transform: translate(0px, 0px);
 }
 
-#paperclip {
-  color: #333;
-  font-size: 3em;
-  margin: 20px;
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
+
+
+/*Rotate arrow*/
+/*#rotate-area {
+  background-color: red;
+  overflow: hidden;
 }
+
+#arrow {
+  width: 10%;
+  height: 10%;
+}*/
 
 
 /*Color Palette: http://paletton.com/palette.php?uid=70k0u0kurfRtw0Qpm1hQ%2BWzy8UX*/
+
+
+
+
