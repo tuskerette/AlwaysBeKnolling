@@ -83,18 +83,13 @@ $(document).ready(function() {
 
 
   $('input').on( "click", function() {
-    $('#sunglasses2').removeClass('drop');
-    $('#sunglasses2').addClass('draggable');
+    $('#sunglasses2').toggleClass('draggable');
+    $('#sunglasses2').addClass('drop');
 
     $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
   });
 
-  // $( 'input #rotate' ).on( "click", function() {
-  //   $('#sunglasses2').removeClass('draggable');
-  //   $('#sunglesses2').addClass('drop');
 
-  //   $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-  // });
 });
 
 
