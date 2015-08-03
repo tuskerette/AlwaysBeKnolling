@@ -12,63 +12,90 @@ interact('.draggable')
     onmove: dragMoveListener,
   });
 
+interact('.rotate')
+  .draggable({
+    inertia : true,
+    onmove: rotateMoveListener
+  });
+
 function dragMoveListener (event) {
   var target = event.target,
       // keep the dragged position in the data-x/data-y attributes
       x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
       y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
+  if(Array.prototype.indexOf.call(target.classList, 'draggable') === -1) return;
+
   // translate the element
-  target.style.webkitTransform =
-  target.style.transform =
-    'translate(' + x + 'px, ' + y + 'px)';
+  // target.style.webkitTransform =
+
+  if(!target.style.transform) target.style.transform = 'translate(0px, 0px) rotate(0deg)';
+  target.style.transform = target.style.transform.replace(/translate\([\-\.\d]+px, [\-\.\d]+px\)/, 'translate(' + x + 'px, ' + y + 'px)');
 
   // update the posiion attributes
   target.setAttribute('data-x', x);
   target.setAttribute('data-y', y);
+}
+function rotateMoveListener (event) {
+  var target = event.target;
+
+  if(Array.prototype.indexOf.call(target.classList, 'rotate') === -1) return;
+
+  var offset = [target.offsetLeft, target.offsetTop];
+  var bounds = target.getBoundingClientRect();
+  var center_x = bounds.left + (bounds.right - bounds.left) / 2;
+  var center_y = bounds.top + (bounds.bottom - bounds.top) / 2;
+  var mouse_x = event.pageX;
+  var mouse_y = event.pageY;
+  var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+  var degree = (radians * (180 / Math.PI) * -1) + 100;
+
+  console.log(event.pageY, center_y);
+
+  if(!target.style.transform) target.style.transform = 'translate(0px, 0px) rotate(0deg)';
+  target.style.transform = target.style.transform.replace(/rotate\([\-\.\d]+deg\)/, 'rotate(' + degree + 'deg)');
 }
 
 // this is used later in the resizing demo
 window.dragMoveListener = dragMoveListener;
 
 
-// // Rotate
+$('#rotateitem').on('click', function (event) {
+    $('#sunglasses2').toggleClass('rotate draggable');
+  });
+
+
+
+// OLD Rotate
 // $(document).ready(function() {
 
-//   function rotateOnMouse(e, pw) {
-//       var offset = pw.offset();
-//       var center_x = (offset.left) + ($(pw).width() / 2);
-//       var center_y = (offset.top) + ($(pw).height() / 2);
-//       var mouse_x = e.pageX;
-//       var mouse_y = e.pageY;
-//       var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
-//       var degree = (radians * (180 / Math.PI) * -1) + 100;
-//       $(pw).css('-moz-transform', 'rotate(' + degree + 'deg)');
-//       $(pw).css('-webkit-transform', 'rotate(' + degree + 'deg)');
-//       $(pw).css('-o-transform', 'rotate(' + degree + 'deg)');
-//       $(pw).css('-ms-transform', 'rotate(' + degree + 'deg)');
-//   }
+  // function rotateOnMouse(e, pw) {
+  //     var offset = pw.offset();
+  //     console.log(offset);
+  //     var center_x = (offset.left) + ($(pw).width() / 2);
+  //     var center_y = (offset.top) + ($(pw).height() / 2);
+  //     var mouse_x = e.pageX;
+  //     var mouse_y = e.pageY;
+  //     var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+  //     var degree = (radians * (180 / Math.PI) * -1) + 100;
+  //     $(pw).css('-moz-transform', 'rotate(' + degree + 'deg)');
+  //     $(pw).css('-webkit-transform', 'rotate(' + degree + 'deg)');
+  //     $(pw).css('-o-transform', 'rotate(' + degree + 'deg)');
+  //     $(pw).css('-ms-transform', 'rotate(' + degree + 'deg)');
+  // }
 
-//   $('.rotate').mousedown(function(e) {
-//     e.preventDefault(); // prevents the dragging of the image.
-//     $(document).bind('mousemove.rotateImg', function(e2) {
-//       rotateOnMouse(e2, $('.glyphicon'));
-//     });
-//   });
+  // $('.rotate').mousedown(function(e) {
+  //   e.preventDefault(); // prevents the dragging of the image.
+  //   $(document).bind('mousemove.rotateImg', function(e) {
+  //     rotateOnMouse(e, $('#sunglasses2'));
+  //   });
+  // });
 
-//   $(document).mouseup(function(e) {
-//     $(document).unbind('mousemove.rotateImg');
-//   });
-
-
-//   $('input').on("click", function() {
-//     $('.glyphicon').toggleClass('draggable');
-//     $('.glyphicon').toggleClass('rotate');
-
-//     $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-//   });
+  // $(document).mouseup(function(e) {
+  //   $(document).unbind('mousemove.rotateImg');
+  // });
 
 
-// });
+ // });
 
 
