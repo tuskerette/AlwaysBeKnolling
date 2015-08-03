@@ -32,43 +32,43 @@ function dragMoveListener (event) {
 window.dragMoveListener = dragMoveListener;
 
 
-// Rotate
-$(document).ready(function() {
+// // Rotate
+// $(document).ready(function() {
 
-  function rotateOnMouse(e, pw) {
-      var offset = pw.offset();
-      var center_x = (offset.left) + ($(pw).width() / 2);
-      var center_y = (offset.top) + ($(pw).height() / 2);
-      var mouse_x = e.pageX;
-      var mouse_y = e.pageY;
-      var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
-      var degree = (radians * (180 / Math.PI) * -1) + 100;
-      $(pw).css('-moz-transform', 'rotate(' + degree + 'deg)');
-      $(pw).css('-webkit-transform', 'rotate(' + degree + 'deg)');
-      $(pw).css('-o-transform', 'rotate(' + degree + 'deg)');
-      $(pw).css('-ms-transform', 'rotate(' + degree + 'deg)');
-  }
+//   function rotateOnMouse(e, pw) {
+//       var offset = pw.offset();
+//       var center_x = (offset.left) + ($(pw).width() / 2);
+//       var center_y = (offset.top) + ($(pw).height() / 2);
+//       var mouse_x = e.pageX;
+//       var mouse_y = e.pageY;
+//       var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+//       var degree = (radians * (180 / Math.PI) * -1) + 100;
+//       $(pw).css('-moz-transform', 'rotate(' + degree + 'deg)');
+//       $(pw).css('-webkit-transform', 'rotate(' + degree + 'deg)');
+//       $(pw).css('-o-transform', 'rotate(' + degree + 'deg)');
+//       $(pw).css('-ms-transform', 'rotate(' + degree + 'deg)');
+//   }
 
-  $('.rotate').mousedown(function(e) {
-    e.preventDefault(); // prevents the dragging of the image.
-    $(document).bind('mousemove.rotateImg', function(e2) {
-      rotateOnMouse(e2, $('.glyphicon'));
-    });
-  });
+//   $('.rotate').mousedown(function(e) {
+//     e.preventDefault(); // prevents the dragging of the image.
+//     $(document).bind('mousemove.rotateImg', function(e2) {
+//       rotateOnMouse(e2, $('.glyphicon'));
+//     });
+//   });
 
-  $(document).mouseup(function(e) {
-    $(document).unbind('mousemove.rotateImg');
-  });
-
-
-  $('input').on("click", function() {
-    $('.glyphicon').toggleClass('draggable');
-    $('.glyphicon').toggleClass('rotate');
-
-    $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-  });
+//   $(document).mouseup(function(e) {
+//     $(document).unbind('mousemove.rotateImg');
+//   });
 
 
-});
+//   $('input').on("click", function() {
+//     $('.glyphicon').toggleClass('draggable');
+//     $('.glyphicon').toggleClass('rotate');
+
+//     $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
+//   });
+
+
+// });
 
 
