@@ -50,8 +50,6 @@ function rotateMoveListener (event) {
   var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
   var degree = (radians * (180 / Math.PI) * -1) + 100;
 
-  console.log(event.pageY, center_y);
-
   if(!target.style.transform) target.style.transform = 'translate(0px, 0px) rotate(0deg)';
   target.style.transform = target.style.transform.replace(/rotate\([\-\.\d]+deg\)/, 'rotate(' + degree + 'deg)');
 }
